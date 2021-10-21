@@ -26,7 +26,7 @@ spec:
       paths:
   {{- range $path := $paths }}
       - path: {{ tpl $path $ }}
-        pathType: prefix
+        pathType: Prefix
         backend:
           service:
             name: {{ include "vernemq.fullname" $ }}
@@ -39,7 +39,7 @@ spec:
       paths:
   {{- range $path := $paths }}
       - path: {{ tpl $path $ }}
-        pathType: prefix
+        pathType: Prefix
         backend:
           service:
             name: {{ include "vernemq.fullname" $ }}
