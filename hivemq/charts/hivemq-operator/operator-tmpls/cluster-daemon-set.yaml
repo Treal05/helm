@@ -48,10 +48,10 @@ spec:
           {{ entry.key }}: "{{entry.value}}"
           {% endfor %}
       {% endif %}
-      # {% if !spec.tolerations.entrySet().isEmpty() %}
-      # tolerations:
-      #   {{ util:nindent(8, util:toYaml(spec.tolerations)) }}
-      # {% endif %}
+      {% if spec.tolerations.size() > 0 %}
+      tolerations:
+        {{ util:nindent(8, util:toYaml(spec.tolerations)) }}
+      {% endif %}
       {% if spec.topologySpreadConstraints.size() > 0 %}
       topologySpreadConstraints:
         {{ util:nindent(8, util:toYaml(spec.topologySpreadConstraints)) }}
