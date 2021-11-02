@@ -86,6 +86,7 @@ hivemq:
   # Node selectors for the Pod spec
   nodeSelector: {}
   # StatefulSet only: Volume claim templates to use
+  tolerations: {}
   volumeClaimTemplates: []
   # RuntimeClass for the Pod spec
   runtimeClassName: ""
