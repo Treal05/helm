@@ -81,6 +81,9 @@ spec:
   {{- if .Values.hivemq.nodeSelector }}
   nodeSelector: {{ toYaml .Values.hivemq.nodeSelector | nindent 4 }}
   {{- end }}
+  {{- if .Values.hivemq.tolerations }}
+  tolerations: {{ toYaml .Values.hivemq.tolerations | indent 4 }}
+  {{- end }}
   runtimeClassName: {{ toYaml .Values.hivemq.runtimeClassName | nindent 4 }}
   priorityClassName: {{ toYaml .Values.hivemq.priorityClassName | nindent 4 }}
   additionalVolumes: {{ toYaml .Values.hivemq.additionalVolumes | nindent 4 }}
