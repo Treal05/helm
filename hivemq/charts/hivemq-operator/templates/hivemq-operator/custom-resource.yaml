@@ -78,9 +78,7 @@ spec:
   {{- end }}
   topologySpreadConstraints: {{ toYaml .Values.hivemq.topologySpreadConstraints | nindent 4 }}
   tolerations: {{ toYaml .Values.hivemq.tolerations | nindent 4 }}
-  {{- if .Values.hivemq.nodeSelector }}
   nodeSelector: {{ toYaml .Values.hivemq.nodeSelector | nindent 4 }}
-  {{- end }}
   tolerations: {{ toYaml .Values.hivemq.tolerations | indent 4 }}
   runtimeClassName: {{ toYaml .Values.hivemq.runtimeClassName | nindent 4 }}
   priorityClassName: {{ toYaml .Values.hivemq.priorityClassName | nindent 4 }}
