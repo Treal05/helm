@@ -20,18 +20,22 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- if .Values.operator.nodeSelector }}
+    {{- if .Values.operator.nodeSelector }}
       nodeSelector:
-        {{ toYaml .Values.operator.nodeSelector | indent 8 }}
-      {{- end }}
-      {{- if .Values.operator.tolerations }}
+{{ toYaml .Values.operator.nodeSelector | indent 8 }}
+    {{- end }}
+    {{- if .Values.operator.securityContext }}
+      securityContext:
+{{ toYaml .Values.operator.securityContext | indent 8 }}
+    {{- end }}
+    {{- if .Values.operator.tolerations }}
       tolerations:
-        {{ toYaml .Values.operator.tolerations | indent 8 }}
-      {{- end }}
-      {{- if .Values.operator.affinity }}
+{{ toYaml .Values.operator.tolerations | indent 8 }}
+    {{- end }}
+    {{- if .Values.operator.affinity }}
       affinity:
-        {{ toYaml .Values.operator.affinity | indent 8 }}
-      {{- end }}
+{{ toYaml .Values.operator.affinity | indent 8 }}
+    {{- end }}
       containers:
         - image: {{ .Values.operator.image }}
           imagePullPolicy: {{ .Values.operator.imagePullPolicy }}
