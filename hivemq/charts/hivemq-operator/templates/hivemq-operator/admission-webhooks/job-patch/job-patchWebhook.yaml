@@ -48,17 +48,17 @@ spec:
 {{ toYaml .Values.operator.admissionWebhooks.patch.resources | indent 12 }}
       restartPolicy: OnFailure
       serviceAccountName: {{ template "hivemq.fullname" . }}-admission
-      {{- with .Values.operator.admissionWebhooks.patch.nodeSelector }}
+      {{- if .Values.operator.admissionWebhooks.patch.nodeSelector }}
       nodeSelector:
-{{ toYaml . | indent 8 }}
+{{ toYaml .Values.operator.admissionWebhooks.patch.nodeSelector  | indent 8 }}
       {{- end }}
-      {{- with .Values.operator.admissionWebhooks.patch.affinity }}
+      {{- if .Values.operator.admissionWebhooks.patch.affinity }}
       affinity:
-{{ toYaml . | indent 8 }}
+{{ toYaml .Values.operator.admissionWebhooks.patch.affinity | indent 8 }}
       {{- end }}
-      {{- with .Values.operator.admissionWebhooks.patch.tolerations }}
+      {{- if .Values.operator.admissionWebhooks.patch.tolerations }}
       tolerations:
-{{ toYaml . | indent 8 }}
+{{ toYaml .Values.operator.admissionWebhooks.patch.tolerations | indent 8 }}
       {{- end }}
       securityContext:
 {{ toYaml .Values.global.rbac.securityContext | indent 8 }}
