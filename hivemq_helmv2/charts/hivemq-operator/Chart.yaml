@@ -1,4 +1,4 @@
-apiVersion: v2
+apiVersion: v1
 name: hivemq-operator
 description: Operator for the HiveMQ MQTT broker
 type: application
