@@ -32,7 +32,7 @@ If release name contains chart name it will be used as a full name.
   {{- end -}}
 {{- end -}}
 
-release: {{ $.Release.Name | quote }}
+release: hivemq-operator
 
 {{/*
 Create chart name and version as used by the chart label.
